@@ -1,7 +1,8 @@
 import Login.UserCredentials;
 import Login.Login;
-
+import Tasks.Tasks;
 import javax.swing.*;
+import java.awt.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -26,12 +27,17 @@ public class Main {
         login.setUsername(username);
         login.setPassword(password);
 
-
-        while (!login.loginUser()) {}
-        JOptionPane.showMessageDialog(null, "Welcome to EasyKanban");
-        while (login.returnLoginStatus().compareTo("success") == 0) {}
-
         UserCredentials userCredentials = new UserCredentials();
-        userCredentials.option();
+        Tasks tasks = new Tasks();
+        int total = 0;
+        while (!login.loginUser()) {}
+        while (true) {
+            userCredentials.option();
+        }
+        //while (login.returnLoginStatus().compareTo("success") == 0) {}
+
     }
+
+
+
 }

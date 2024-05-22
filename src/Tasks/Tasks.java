@@ -1,5 +1,7 @@
 package Tasks;
 
+import javax.swing.JOptionPane;
+
 public class Tasks {
 
     private String taskName, taskDescription, developerDetails, taskID, status, taskDetails;
@@ -40,10 +42,11 @@ public class Tasks {
         return overallTotal;
     }
     public boolean checkTaskDescription() {
+
         return taskDescription.length() < 50;
     }
 
-    public String createTaskID() {
+    public String createTaskID(String taskName, int count, String developerDetails) {
 
         taskID = (taskName.substring(0, 2) + ":" + count + ":"
                 + developerDetails.substring(developerDetails.length() - 3));
@@ -63,12 +66,12 @@ public class Tasks {
                 return "Doing";
         }
 
-        taskDetails = (status + "," + developerDetails + "," + count + taskName + "," + taskID + "," + duration);
+        taskDetails = ("Task status:\n" + status + "Developer details:\n" + developerDetails + "Total:\n" + count + "Task name:\n" + taskName + "Task ID:\n" + taskID + "Duration:\n" + duration);
 
         return status;
     }
 
-    public int returnTotalHours() {
+    public int returnTotalHours(int overallTotal) {
 
         int total = 0;
 
