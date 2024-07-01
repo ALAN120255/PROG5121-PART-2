@@ -55,7 +55,7 @@ public class Tasks {
         return taskID;
     }
 
-    public String printTaskDetails() {
+    public String printTaskDetails(String taskStatus) {
 
         switch (this.taskStatus) {
             case 1:
@@ -68,7 +68,7 @@ public class Tasks {
 
         taskDetails = ("Task status:\n" + status + "Developer details:\n" + developerDetails + "Total:\n" + count + "Task name:\n" + taskName + "Task ID:\n" + taskID + "Duration:\n" + duration);
 
-        return status;
+        return taskStatus;
     }
 
     public int returnTotalHours(int overallTotal) {
@@ -81,6 +81,6 @@ public class Tasks {
             overallTotal = total + duration;
         }
 
-        return overallTotal;
+        return overallTotal;  
     }
 }
