@@ -63,32 +63,26 @@ public class UserCredentials {
 
             JOptionPane.showMessageDialog(null, task_ID);
 
-            String[] taskStatus = new String[] { "To Do", "Done", "Doing" };
+            String taskStatus[] = new String[] { "To Do", "Done", "Doing" };
             int choice = JOptionPane.showOptionDialog((Component) null, "Select task status", "Task Status",
                     JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, taskStatus, taskStatus[0]);
-            switch (choice) {
-                case 0:
-                    JOptionPane.showMessageDialog(null, "To Do");
-                    break;
-                case 1:
-                    JOptionPane.showMessageDialog(null, "Done");
-                    break;
-                case 2:
-                    JOptionPane.showMessageDialog(null, "Doing");
-                    break;
-                default:
-                    JOptionPane.showMessageDialog(null, "Unset");
-                    break;
-            }
-
-            task_Name = taskNames[taskCount];
-            dev_details = developerDetails[taskCount];
-            task_ID = taskIDs[taskCount];
-            durat = taskDuration[taskCount];
+            
+            taskNames[taskCount] = task_Name;
+            developerDetails[taskCount] = dev_details;
+            taskIDs[taskCount] = task_ID;
+            taskDuration[taskCount] = durat;
+            taskStatuses[taskCount] = taskStatus[choice];
 
             taskCount++;
 
             JOptionPane.showMessageDialog(null, "Tasks added successfully added!");
+
+            int continueAdding = JOptionPane.showConfirmDialog(null, "Do you want to add another task?",
+                    "Conitinue", JOptionPane.YES_NO_OPTION);
+
+            if (continueAdding != JOptionPane.YES_OPTION) {
+                break;
+            }
         }
     }
 
