@@ -1,4 +1,5 @@
 package Login;
+
 import javax.swing.*;
 import Tasks.Tasks;
 import java.awt.*;
@@ -8,18 +9,11 @@ public class UserCredentials {
     Tasks tasks = new Tasks();
 
     private static String taskNames[], taskIDs[], developerDetails[];
-    private static String[] taskStatus;
+    private static String[] taskStatuses;
     private static int taskDuration[];
     private static int taskCount = 0;
 
     public void option() {
-
-        int taskDuration[];
-        taskNames = new String[taskCount];
-        taskIDs = new String[taskCount];
-        taskStatus = new String[taskCount];
-        developerDetails = new String[taskCount];
-        taskDuration = new int[taskCount];
 
         String[] options = { "Add Task", "Show report", "Quit" };
         int choice = JOptionPane.showOptionDialog(null, "Choose an option", "Task Manager",
@@ -44,7 +38,15 @@ public class UserCredentials {
 
         Tasks tasks = new Tasks();
 
-        while (true) {
+        int numberOfTasks = Integer.parseInt(JOptionPane.showInputDialog("Number of tasks you want to add?"));
+
+        taskNames = new String[numberOfTasks];
+        taskIDs = new String[numberOfTasks];
+        taskStatuses = new String[numberOfTasks];
+        developerDetails = new String[numberOfTasks];
+        taskDuration = new int[numberOfTasks];
+
+        while (taskCount < numberOfTasks) {
 
             String task_Name = JOptionPane.showInputDialog("Enter task name:");
             int task_Number = Integer.parseInt(JOptionPane.showInputDialog("Enter task number:"));
@@ -86,7 +88,7 @@ public class UserCredentials {
         }
     }
 
-        public void showReport() {
+    public void showReport() {
         // Task info display
         while (true) {
 
@@ -232,4 +234,3 @@ public class UserCredentials {
         JOptionPane.showMessageDialog(null, report.length() > 0 ? report.toString() : "No task available");
     }
 }
-
